@@ -1,0 +1,5 @@
+gymnasium
+numpy
+imageio
+pillow
+pygame
