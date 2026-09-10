@@ -8,12 +8,12 @@ The agent learns through trial and error to navigate across a frozen lake, avoid
 
 ## 🎯 Project Objective
 
-The main objective of this project is to train an agent using **Q-Learning** so that it can:
+The main objective is to train an agent using **Q-Learning** so that it can:
 
-- 🧊 Move across the frozen lake
+- 🧊 Navigate across the frozen lake
 - 🕳️ Avoid falling into holes
 - 🏁 Reach the goal
-- 🧠 Learn the best actions through trial and error
+- 🧠 Learn better actions through trial and error
 
 ---
 
@@ -37,6 +37,8 @@ S F F F
 F H F H
 F F F H
 H F F G
+
+Map Symbols
 Symbol	Meaning
 S	Starting point
 F	Frozen surface
@@ -47,47 +49,59 @@ The agent can move Left, Down, Right, or Up and receives a reward of +1 for reac
 
 🧠 Q-Learning
 
-The agent maintains a Q-table containing the expected value of taking each action from every state.
+The agent maintains a Q-table that stores the expected value of taking different actions from each state.
 
-During training, it repeatedly:
+The learning process can be summarized as:
 
-Observe State → Choose Action → Receive Reward → Update Q-Table
+Observe State
+      ↓
+Choose Action
+      ↓
+Receive Reward
+      ↓
+Move to Next State
+      ↓
+Update Q-Table
+      ↓
+Repeat
 
-An Epsilon-Greedy strategy is used to balance exploration of new actions with exploitation of learned actions.
+An Epsilon-Greedy strategy is used to balance:
 
+Exploration → Trying new actions
+Exploitation → Choosing actions that have already been learned
 🌪️ is_slippery=True vs False
 
-FrozenLake provides two different movement behaviors.
+FrozenLake provides two different movement behaviors using the is_slippery parameter.
 
 is_slippery=True
+is_slippery=True
 
-The environment is stochastic. The agent may not always move in the direction it selected.
+The environment is stochastic, meaning movement is unpredictable.
 
-This makes the environment more challenging and unpredictable. Therefore, even a trained agent can sometimes fall into a hole.
+The agent may not always move in the direction it selected. This makes the environment more challenging.
+
+Because of the randomness, even a trained agent may sometimes fall into a hole.
 
 is_slippery=False
+is_slippery=False
 
-The environment becomes deterministic. The agent moves exactly in the direction it selects.
+The environment becomes deterministic.
 
-This makes it easier to demonstrate a consistent learned path.
+The agent moves exactly in the direction it selects, making the environment easier to understand and demonstrate.
 
+Comparison
 Setting	Movement	Behavior
 True	Unpredictable	More challenging
 False	Predictable	Easier to demonstrate
 
-Note: The same is_slippery setting should be used during both training and evaluation so that the learned Q-table matches the environment.
+Note: The same is_slippery setting should be used during both training and evaluation so that the Q-table matches the environment being used.
 
 🎥 Agent Visualization
 
-The trained agent is rendered using Gymnasium and saved as a GIF.
+After training, the learned Q-table is used to control the agent.
 
-🛠️ Tech Stack
-Python
-Gymnasium
-NumPy
-Jupyter Notebook
-Pygame
-ImageIO
+The agent's movements are rendered using Gymnasium and saved as a GIF.
+
 📂 Project Structure
 FrozenLake-Q-Learning/
 │
@@ -95,8 +109,7 @@ FrozenLake-Q-Learning/
 ├── frozenlake.gif
 ├── README.md
 └── requirements.txt
-
-Key Concepts
+🔑 Key Concepts
 Reinforcement Learning
 Q-Learning
 Q-Tables
@@ -104,6 +117,16 @@ Epsilon-Greedy Strategy
 Exploration vs Exploitation
 Stochastic vs Deterministic Environments
 Gymnasium Environment Rendering
+🚀 Getting Started
+Install the dependencies
+pip install -r requirements.txt
+Run the project
+
+Open the following notebook in Jupyter Notebook or VS Code:
+
+FrozenLake_Q_Learning.ipynb
+
+Run the cells in order to train the agent and generate the visualization.
 
 🔗 Reference
 
