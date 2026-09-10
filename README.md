@@ -70,7 +70,8 @@ An Epsilon-Greedy strategy is used to balance:
 
 Exploration → Trying new actions
 Exploitation → Choosing actions that have already been learned
-
+---
+---
 ##🌪️ is_slippery=True vs False
 
 FrozenLake provides two different movement behaviors using the is_slippery parameter.
@@ -90,7 +91,7 @@ is_slippery=False
 The environment becomes deterministic.
 
 The agent moves exactly in the direction it selects, making the environment easier to understand and demonstrate.
-
+---
 ## Comparison
 Setting	Movement	Behavior
 True	Unpredictable	More challenging
